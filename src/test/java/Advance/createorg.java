@@ -7,8 +7,8 @@
 		import org.openqa.selenium.WebDriver;
 		import org.openqa.selenium.WebElement;
 		import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Test;
+        import org.openqa.selenium.support.ui.Select;
+        import org.testng.annotations.Test;
 
 		public class createorg {
 			
@@ -34,7 +34,7 @@ import org.testng.annotations.Test;
 				
 				driver.findElement(By.xpath("//input[@name='accountname']")).sendKeys("abcde");
 				
-				WebElement industry=driver.findElement(By.xpath("//select[@name='industry']")));
+				WebElement industry=driver.findElement(By.xpath("//select[@name='industry']"));
 				wu.selectbyvisibletextDD(industry, null);
 				
 				driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();

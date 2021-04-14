@@ -1,5 +1,6 @@
 package Advance;
 
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -11,7 +12,7 @@ import org.openqa.selenium.remote.server.handler.SendKeys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class calendercurrentdate
+public class calendersysdate
 {
 	public static void main(String[]args) throws InterruptedException
 	{
@@ -24,6 +25,10 @@ public class calendercurrentdate
 		 
 		 Actions a=new Actions(driver);
 		 a.moveByOffset(10, 10).click().perform();
+		 
+		 Date d = new Date();
+			String date = d.toString();
+			System.out.println(date);
 		 
 		 
 		 driver.findElement(By.xpath("//label[@for='fromCity']")).sendKeys("BOM");
@@ -38,16 +43,8 @@ public class calendercurrentdate
 		 WebElement departure=driver.findElement(By.xpath("//label[@for='departure']"));
 		 wait.until(ExpectedConditions.elementToBeClickable(departure)).click();
 		 
-		 //selecting date (I )
-		 driver.findElement(By.xpath("//p[contains (text(),'17')]")).click();
+		 //driver.findElement(By.xpath("//div[@aria-label='"+date+"']")).click();
 		 
-		 
-		 WebElement departure1=driver.findElement(By.xpath("//label[@for='departure']"));
-		 wait.until(ExpectedConditions.elementToBeClickable(departure1)).click();
-		 
-		 //selecting date(II )
-		 driver.findElement(By.xpath("//div[@aria-label='Fri Apr 16 2021']")).click();
-		 Thread.sleep(3000);
 		
 		 driver.close();
 		 
