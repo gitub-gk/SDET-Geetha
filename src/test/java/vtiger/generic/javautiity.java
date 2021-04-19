@@ -51,7 +51,7 @@ public String getdate()
 	Date d = new Date();
 	String getdate=d.toString();
 	String arr[]=getdate.split(" ");
-	return arr[2];
+	return arr[0];
 }
  
 }

@@ -20,8 +20,9 @@ public class dynamin1 {
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("admin");
 		driver.findElement(By.xpath("//input[@id='submitButton']")).click();
 		driver.findElement(By.xpath("//a[text()='Organizations']")).click();
-		List<WebElement> l1 = driver.findElements(By.xpath("//table[@class='lvt small']/tbody/tr[*]/td[3]/a"));
+		List<WebElement> l1 = driver.findElements(By.xpath("//table[@class='lvt small']/tbody/tr[*]/td[3]"));
 		System.out.println(l1.size());
+		
 		for(int i=1; i<l1.size();i++)
 		{
 			System.out.println(l1.get(i).getText());

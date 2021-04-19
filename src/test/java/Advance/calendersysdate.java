@@ -26,9 +26,23 @@ public class calendersysdate
 		 Actions a=new Actions(driver);
 		 a.moveByOffset(10, 10).click().perform();
 		 
+		 //i)current systemdate with minutes and seconds
+		 
 		 Date d = new Date();
 			String date = d.toString();
 			System.out.println(date);
+			
+			//ii)current systemdate 
+			
+			String arr[]=date.split(" ");
+			String var=arr[0];
+			String mon=arr[1];
+			String date1=arr[2];
+			String year=arr[5];
+			
+			String currentsysdate=var+" "+mon+" "+date1+" "+year;
+			
+			System.out.println(currentsysdate);
 		 
 		 
 		 driver.findElement(By.xpath("//label[@for='fromCity']")).sendKeys("BOM");
@@ -43,7 +57,7 @@ public class calendersysdate
 		 WebElement departure=driver.findElement(By.xpath("//label[@for='departure']"));
 		 wait.until(ExpectedConditions.elementToBeClickable(departure)).click();
 		 
-		 //driver.findElement(By.xpath("//div[@aria-label='"+date+"']")).click();
+		 driver.findElement(By.xpath("//div[@aria-label='"+currentsysdate+"']")).click();
 		 
 		
 		 driver.close();

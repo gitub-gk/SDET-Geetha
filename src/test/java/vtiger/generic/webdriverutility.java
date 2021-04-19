@@ -1,16 +1,20 @@
 package vtiger.generic;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class webdriverutility 
 {
 		
-	// Maximize the browser window
+	//1. Maximize the browser window
 	public void maximizewindow(WebDriver driver)
 	{
 		driver.manage().window().maximize();
@@ -18,22 +22,25 @@ public class webdriverutility
 	
 	
 	
-	 //Implicit wait-until page is loaded
+	 //2.Implicit wait-until page is loaded
 	public void implicitwait(WebDriver driver)
 	{
-		Object Timeunits;
-		driver.manage().timeouts().implicitlyWait(iconstants.implicitwaittime, Timeunits.se)
+	
+		driver.manage().timeouts().implicitlyWait(iconstants.implicitwaittime,TimeUnit.SECONDS);
 	}
 	
+
 	
-	//Explicit wait - given element is clickable
-	public void explicitwait(WebDriver driver, WebElement element)
+	//3.Explicit wait - given element is clickable
+	public void explicitwait(WebDriver driver, WebElement ele)
 	{
+		WebDriverWait wait=new WebDriverWait(driver, iconstants.explicitwaittime);
+		wait.until(ExpectedConditions.elementToBeClickable(ele));
 		
 	}
 	
 	
-	 //dropdown - Visible text and visible number and value
+	 //4.dropdown - Visible text and visible number and value
 	public void dropdown(WebElement element , String text, int num)
 	{
 		        Select s = new Select(element);
@@ -42,21 +49,21 @@ public class webdriverutility
 				s.selectByValue(text);
 	}
 	
-	//MouseHover
+	//5.MouseHover
 	public void mousehover(WebDriver driver, WebElement element)
 	{
 		Actions a=new Actions(driver);
 				a.moveToElement(element);
 	}
 	
-	//Frame
+	//6.Frame
 	public void frame(WebDriver driver, int num)
 	{
 		driver.switchTo().frame(num);
 		
 	}
 	
-	//(i)Alertpopup
+	//7.(i)Alertpopup
 	public void alertpopupaccept(WebDriver driver)
 	{
 		driver.switchTo().alert().accept();
@@ -71,14 +78,14 @@ public class webdriverutility
 		}
 		
 	
-	//Rightclick
+	//8.Rightclick
 	public void rightclick(WebDriver driver, WebElement ele)
 	{
 		Actions a=new Actions(driver);
 				a.contextClick(ele).perform();
 	}
 	
-	//Scrollbar
+	//9.Scrollbar
 	public void acrollbar(WebDriver driver, int X, int Y)
 	{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
